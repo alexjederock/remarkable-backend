@@ -1,20 +1,18 @@
-import express from 'express';
+import { NewsLetter } from './../models/NewsLetter';
+import express, { Router } from 'express';
 
-const nlrouter = express.Router();
+const nlrouter: Router = express.Router();
 
 nlrouter.get('/', function (req, res) {
-  // res.send('Hello from APIv1 root route.');
-  res.json(getMockNewsletters())
+  const nls: NewsLetter[] = getMockNewsletters();
+  res.json(nls)
 });
 
-// nlrouter.get('/users', function(req, res) {
-//   res.send('List of APIv1 users.');
-// });
 
 export default nlrouter;
 
 
-function getMockNewsletters() {
+function getMockNewsletters(): NewsLetter[] {
   return [{
     id: "TmV3c2xldHRlckNvbmZpZzpOTg==",
     newsletterId: "NN",
